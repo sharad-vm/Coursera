@@ -26,13 +26,22 @@ sigma = zeros(1, size(X, 2));
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
 
+% Get the number of features in the dataset
+n = size(X,2)
 
-
-
-
-
-
-
+% Repeat the process for all the features
+for i = 1:n
+    
+    average = mean(X(:,i))
+    deviation = std(X(:,i))
+    
+    X_norm(:,i) = X_norm(:,i) - average
+    X_norm(:,i) = X_norm(:,i)/deviation
+    
+    mu(i) = average
+    sigma(i) = deviation
+    
+end
 
 % ============================================================
 
